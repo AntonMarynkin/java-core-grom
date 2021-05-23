@@ -13,6 +13,9 @@ public class User {
     static Date lastActiveDate;
     boolean isActive;
 
+    public User() {
+    }
+
     public User(String name, int age, String city, Date lastActiveDate, boolean isActive) {
         this.name = name;
         this.age = age;
@@ -25,8 +28,6 @@ public class User {
         this.name = name;
     }
 
-    //1. не печатает ?
-    //2. static void logIn()   lastActiveDate - подчеркивает?
 
     static void logIn() {
         lastActiveDate = new Date();

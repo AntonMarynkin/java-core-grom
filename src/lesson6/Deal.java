@@ -10,13 +10,13 @@ public class Deal {
     }
 
     long id;
-    static int price;
-    Date dateCreated;
-    static boolean isConfirmed;
-    static Date dateConfirmed;
-    String city;
-    String country;
-    static String type;
+    public static int price;
+    public static Date dateCreated;
+    public static boolean isConfirmed;
+    public static Date dateConfirmed;
+    public static String city;
+    public static String country;
+    public static String type;
 
     public Deal(int price, Date dateCreated, boolean isConfirmed, Date dateConfirmed, String city, String country, String type) {
         this.price = price;

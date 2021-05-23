@@ -3,6 +3,7 @@ package lesson6;
 public class Car {
     public static void main(String[] args) {
        startRun();
+       stopRun();
     }
 
     //1. fields
