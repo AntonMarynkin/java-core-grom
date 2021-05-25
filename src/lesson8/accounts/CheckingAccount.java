@@ -1,15 +1,15 @@
 package lesson8.accounts;
 
 public class CheckingAccount extends Account {
-    int limitOFExpenses;
+    int limitOfExpenses;
 
-    public CheckingAccount(String bankName, String ownerName, int moneyAmount, int limitOFExpenses) {
+    public CheckingAccount(String bankName, String ownerName, int moneyAmount, int limitOfExpenses) {
         super(bankName, ownerName, moneyAmount);
-        this.limitOFExpenses = limitOFExpenses;
+        this.limitOfExpenses = limitOfExpenses;
     }
 
     void withdraw(int amount) {
-        if(amount > limitOFExpenses)
+        if(amount > limitOfExpenses)
             return;
         moneyAmount -= amount;
     }
