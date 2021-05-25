@@ -9,7 +9,7 @@ public class CheckingAccount extends Account {
     }
 
     void withdraw(int amount) {
-        if(amount > limitOfExpenses)
+        if (amount > limitOfExpenses)
             return;
         moneyAmount -= amount;
     }
