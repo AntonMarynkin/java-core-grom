@@ -9,6 +9,7 @@ public class Deal {
         System.out.println(isValidType());
     }
 
+
     long id;
     public static int price;
     public static Date dateCreated;
