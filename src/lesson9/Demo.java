@@ -17,7 +17,7 @@ public class Demo {
 
 
 
-        UserRepository userRepository = new UserRepository(null, null);
+        UserRepository userRepository = new UserRepository(null);
         System.out.println(userRepository.getUsers());
     }
 }

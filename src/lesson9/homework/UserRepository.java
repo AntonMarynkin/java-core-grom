@@ -2,11 +2,9 @@ package lesson9.homework;
 
 public class UserRepository {
     private User[] users;
-    private long[] id;
 
-    public UserRepository(User[] users, long[] id) {
+    public UserRepository(User[] users) {
         this.users = users;
-        this.id = id;
     }
 
     public User[] getUsers() {
@@ -20,7 +18,6 @@ public class UserRepository {
     }
 
     public long[] getUserIds() {
-        System.out.println(id);
         return null;
     }
 
