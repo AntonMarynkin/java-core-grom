@@ -13,7 +13,7 @@ public class UserRepository {
 
 
     public String[] getUserNames() {
-        System.out.println(users);
+        //System.out.println(users);
         return null;
     }
 
@@ -22,6 +22,23 @@ public class UserRepository {
     }
 
     public String getUserNameById(long id) {
+        return null;
+    }
+
+
+    public User[] getUserByName(String name) {
+        User user = new User(2552, "Ed", "session");
+        for (User findUser : users) {
+
+        }
+        return null;
+    }
+
+    public String getUserById(long id) {
+        return null;
+    }
+
+    public String getUserBySessionId(String sessionId) {
         return null;
     }
 }
