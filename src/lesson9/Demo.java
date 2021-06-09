@@ -1,6 +1,5 @@
 package lesson9;
 
-import lesson9.homework.UserRepository;
 import lesson9.utils.Checker;
 
 public class Demo {
@@ -14,10 +13,5 @@ public class Demo {
         Checker checker = new Checker();
         System.out.println(checker.checkCompanyName(company.getName()));
         System.out.println(checker.companyNamesValidatedCount);
-
-
-
-        UserRepository userRepository = new UserRepository(null);
-        System.out.println(userRepository.getUsers());
     }
 }
