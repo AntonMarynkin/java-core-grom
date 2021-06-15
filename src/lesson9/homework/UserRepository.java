@@ -2,10 +2,12 @@ package lesson9.homework;
 
 public class UserRepository {
     private User[] users;
+    private User user = new User(5535353, "Vadim", "session1");
 
     public UserRepository(User[] users) {
         this.users = users;
     }
+
 
     public User[] getUsers() {
         return users;
@@ -13,7 +15,6 @@ public class UserRepository {
 
 
     public String[] getUserNames() {
-        //System.out.println(users);
         return null;
     }
 
@@ -26,19 +27,19 @@ public class UserRepository {
     }
 
 
-    public User[] getUserByName(String name) {
-        User user = new User(2552, "Ed", "session");
+    public User getUserByName(String name) {
         for (User findUser : users) {
-
+            if (name == user.getName())
+                return user;
         }
         return null;
     }
 
-    public String getUserById(long id) {
+    public User getUserById(long id) {
         return null;
     }
 
-    public String getUserBySessionId(String sessionId) {
+    public User getUserBySessionId(String sessionId) {
         return null;
     }
 }
