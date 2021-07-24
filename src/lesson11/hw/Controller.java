@@ -9,16 +9,29 @@ public class Controller {
     }
 
     public Room[] requestRooms(int price, int persons, String city, String hotel) {
-        int indexApi = 0;
+
+        int index = 0;
+        int resIndex = 0;
+
+        Room[] resApiRooms = new Room[resIndex];
+
+        BookingComAPI bookingComAPI = new BookingComAPI(resApiRooms);
+        TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI(resApiRooms);
+        GoogleAPI googleAPI = new GoogleAPI(resApiRooms);
+
         for (API api : apis) {
             for (int i = 1; i < apis.length; i++) {
                 API ap = apis[i];
-                if (api.findRooms(price, persons, city, hotel) == ap.findRooms(price, persons, city, hotel))
-                    return new Room[indexApi];
-                indexApi++;
+                if (api.findRooms(price, persons, city, hotel) == ap.findRooms(price, persons, city, hotel)) {
+                    bookingComAPI.rooms[index] = resApiRooms[resIndex];
+                    tripAdvisorAPI.rooms[index] = resApiRooms[resIndex];
+                    googleAPI.rooms[index] = resApiRooms[resIndex];
+                }
+                index++;
             }
+            resIndex++;
         }
-        return null;
+        return resApiRooms;
     }
 
     public Room[] check(API api1, API api2) {
