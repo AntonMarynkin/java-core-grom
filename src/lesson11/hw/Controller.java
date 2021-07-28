@@ -10,24 +10,23 @@ public class Controller {
 
     public Room[] requestRooms(int price, int persons, String city, String hotel) {
 
-        int resIndex = 0;
-        Room[] resApiRooms = new Room[resIndex];
+        Room[] resApiRooms;
 
         for (API api : apis) {
             resApiRooms = api.findRooms(price, persons, city, hotel);
-            resIndex++;
+            return resApiRooms;
         }
 
         for (API api1 : apis) {
             resApiRooms = api1.findRooms(price, persons, city, hotel);
-            resIndex++;
+            return resApiRooms;
         }
 
         for (API api2 : apis) {
             resApiRooms = api2.findRooms(price, persons, city, hotel);
-            resIndex++;
+            return resApiRooms;
         }
-        return resApiRooms;
+        return null;
     }
 
 
