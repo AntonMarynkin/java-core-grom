@@ -32,28 +32,18 @@ public class Controller {
 
     public Room[] check(API api1, API api2) {
 
-        int index = 0;
-        int resIndex = 0;
+        Room[] resApiRooms;
 
-        Room[] resApiRooms = new Room[resIndex];
-
-        BookingComAPI bookingComAPI = new BookingComAPI(resApiRooms);
-        TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI(resApiRooms);
-        GoogleAPI googleAPI = new GoogleAPI(resApiRooms);
-
-        for (API api : apis) {
-            for (int i = 1; i < apis.length; i++) {
-                API ap = apis[i];
-                /*if (api.findRooms(price, persons, city, hotel) == ap.findRooms(price, persons, city, hotel)) {
-                    bookingComAPI.rooms[index] = resApiRooms[resIndex];
-                    tripAdvisorAPI.rooms[index] = resApiRooms[resIndex];
-                    googleAPI.rooms[index] = resApiRooms[resIndex];
-                }*/
-                index++;
+        for (Room room1 : api1.getAll()) {
+            for (int i = 1; i < api2.getAll().length; i++) {
+                Room room2 = api2.getAll()[i];
+                if (room1.getPrice() == room2.getPrice() && room1.getPersons() == room2.getPersons() && room1.getCityName() == room2.getCityName() && room1.getHotelName() == room2.getHotelName()) {
+                    resApiRooms = api1.findRooms(room1.getPrice(), room1.getPersons(), room1.getCityName(), room1.getHotelName());
+                    return resApiRooms;
+                }
             }
-            resIndex++;
         }
-        return resApiRooms;
+        return null;
     }
 
     public Room cheapestRoom() {
