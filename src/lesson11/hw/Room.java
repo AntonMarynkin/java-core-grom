@@ -19,6 +19,12 @@ public class Room {
         this.cityName = cityName;
     }
 
+
+    public String toString() {
+        return cityName;
+    }
+
+
     public long getId() {
         return id;
     }

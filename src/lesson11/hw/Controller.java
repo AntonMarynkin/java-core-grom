@@ -12,11 +12,6 @@ public class Controller {
 
         Room[] resApiRooms;
 
-        for (API api : apis) {
-            resApiRooms = api.findRooms(price, persons, city, hotel);
-            return resApiRooms;
-        }
-
         for (API api1 : apis) {
             resApiRooms = api1.findRooms(price, persons, city, hotel);
             return resApiRooms;
@@ -26,27 +21,43 @@ public class Controller {
             resApiRooms = api2.findRooms(price, persons, city, hotel);
             return resApiRooms;
         }
+
+        for (API api3 : apis) {
+            resApiRooms = api3.findRooms(price, persons, city, hotel);
+            return resApiRooms;
+        }
         return null;
     }
 
 
     public Room[] check(API api1, API api2) {
 
-        Room[] resApiRooms;
+        Room[] resApiRooms = new Room[api1.getAll().length];
+        int index = 0;
 
         for (Room room1 : api1.getAll()) {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
                 if (room1.getPrice() == room2.getPrice() && room1.getPersons() == room2.getPersons() && room1.getCityName() == room2.getCityName() && room1.getHotelName() == room2.getHotelName()) {
-                    resApiRooms = api1.findRooms(room1.getPrice(), room1.getPersons(), room1.getCityName(), room1.getHotelName());
-                    return resApiRooms;
+                    resApiRooms[index] = room1;
+                    index++;
                 }
             }
         }
-        return null;
+        return resApiRooms;
     }
 
     public Room cheapestRoom() {
+        for (API api1 : apis) {
+            api1.getAll();
+            Room room = api1.getAll()[0];
+            for (int i = 1; i < api1.getAll().length; i++) {
+                Room room1 = api1.getAll()[i];
+                if (room1 != null && room1.getPrice() < room.getPrice())
+                    room = room1;
+            }
+            return room;
+        }
         return null;
     }
 }

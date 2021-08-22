@@ -18,8 +18,11 @@ public class Demo {
 
         Controller controller = new Controller(apis);
 
-        System.out.println(Arrays.toString(controller.requestRooms(800, 3, "Parus", "Odesa")));
         System.out.println(Arrays.toString(bookingComAPI.findRooms(800, 3, "Parus", "Odesa")));
         System.out.println(Arrays.toString(tripAdvisorAPI.findRooms(800, 3, "Parus", "Kyiv")));
+        System.out.println(Arrays.toString(googleAPI.findRooms(800, 3, "Parus", "Akkerman")));
+        System.out.println(Arrays.toString(controller.requestRooms(800, 3, "Parus", "Odesa")));
+        System.out.println(Arrays.toString(controller.check(bookingComAPI, tripAdvisorAPI)));
+        System.out.println(controller.cheapestRoom());
     }
 }
