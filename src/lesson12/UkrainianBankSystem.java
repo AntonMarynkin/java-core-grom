@@ -39,22 +39,19 @@ public class UkrainianBankSystem implements BankSystem {
         //снимаем деньги fromUser
         //пополняем деньги toUser
 
-        //TODO check fund rules
         if (!checkWithdraw(fromUser, amount))
             return;
-
-        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
 
         if (!checkFunding(toUser, amount))
             return;
 
-        //TODO fund
+        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+
         toUser.setBalance(toUser.getBalance() + amount);
     }
 
     @Override
     public void paySalary(User user) {
-        //TODO homework
         user.setBalance(user.getBalance() + user.getSalary());
     }
 
@@ -64,7 +61,7 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkWithdrawLimits(User user, int amount, double limit) {
-        if (amount + user.getBank().getCommission(amount) > limit) {
+        if (amount + amount * user.getBank().getCommission(amount) > limit) {
             printWithdrawalErrorMsg(amount, user);
             return false;
         }
