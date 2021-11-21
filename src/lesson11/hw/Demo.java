@@ -9,7 +9,9 @@ public class Demo {
         Room room2 = new Room(462152354, 850, 2, new Date(), "Dolphin", "Odesa");
         Room room3 = new Room(462152374, 1000, 3, new Date(), "More", "Zatoka");
         Room room4 = new Room(462152541, 900, 2, new Date(), "Karpaty", "Verhovyna");
-        Room[] rooms = {room1, room2, room3, room4};
+        //test
+        Room roomTest = new Room(462152541, 900, 2, null, null, null);
+        Room[] rooms = {room1, room2, room3, room4, roomTest};
 
         BookingComAPI bookingComAPI = new BookingComAPI(rooms);
         TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI(rooms);
@@ -24,5 +26,9 @@ public class Demo {
         System.out.println(Arrays.toString(controller.requestRooms(800, 3, "Parus", "Odesa")));
         System.out.println(Arrays.toString(controller.check(bookingComAPI, tripAdvisorAPI)));
         System.out.println(controller.cheapestRoom());
+        //test
+        System.out.println(Arrays.toString(bookingComAPI.findRooms(200, 2, null, null)));
+        System.out.println(Arrays.toString(controller.requestRooms(800, 0, null, null)));
+        System.out.println(Arrays.toString(controller.check(null, null)));
     }
 }

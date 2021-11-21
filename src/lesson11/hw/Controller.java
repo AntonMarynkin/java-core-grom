@@ -32,6 +32,11 @@ public class Controller {
 
     public Room[] check(API api1, API api2) {
 
+        if (api1 == null)
+            return null;
+        if (api2 == null)
+            return null;
+
         Room[] resApiRooms = new Room[api1.getAll().length];
         int index = 0;
 
