@@ -38,8 +38,8 @@ public class UserRepository {
 //        if (user == null)
 //            return null;
         User curUser = findById(user.getId());
-//        if (curUser == null)
-//            return null;
+        if (curUser == null)
+            return null;
         user.equals(curUser);
 
         long curUserId = curUser.getId();
