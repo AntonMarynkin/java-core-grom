@@ -25,9 +25,5 @@ public class StringCompare {
         System.out.println(Arrays.toString(str.getBytes()));
         //обратно в String
         System.out.println(new String(str.getBytes()));
-
-//        test.getBytes();
-//        test.equals("eeee");
-//        test.intern();
     }
 }
