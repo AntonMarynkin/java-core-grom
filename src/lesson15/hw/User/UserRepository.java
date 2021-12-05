@@ -1,4 +1,4 @@
-package lesson15.hw;
+package lesson15.hw.User;
 
 public class UserRepository {
     private User[] users;

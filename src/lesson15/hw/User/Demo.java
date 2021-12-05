@@ -1,4 +1,4 @@
-package lesson15.hw;
+package lesson15.hw.User;
 
 public class Demo {
     public static void main(String[] args) {
