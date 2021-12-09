@@ -29,7 +29,6 @@ public class Controller {
         return null;
     }
 
-
     public Room[] check(API api1, API api2) {
 
         if (api1 == null)
@@ -37,18 +36,28 @@ public class Controller {
         if (api2 == null)
             return null;
 
-        Room[] resApiRooms = new Room[api1.getAll().length];
-        int index = 0;
-
+        int indexLength = 1;
         for (Room room1 : api1.getAll()) {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
                 room1.equals(room2);
                 room1.hashCode();
                 room2.hashCode();
-                resApiRooms[index] = room1;
             }
-            index++;
+            indexLength++;
+        }
+
+        Room[] resApiRooms = new Room[indexLength];
+
+        int indexRoom = 0;
+        for (Room room1 : api1.getAll()) {
+            for (int i = 1; i < api2.getAll().length; i++) {
+                Room room2 = api2.getAll()[i];
+                room1.equals(room2);
+                if (room1.hashCode() == room2.hashCode())
+                    resApiRooms[indexRoom] = room1;
+            }
+            indexRoom++;
         }
         return resApiRooms;
     }
