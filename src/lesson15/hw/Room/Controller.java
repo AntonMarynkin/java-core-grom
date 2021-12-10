@@ -41,10 +41,9 @@ public class Controller {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
                 room1.equals(room2);
-                room1.hashCode();
-                room2.hashCode();
+                if (room1.hashCode() == room2.hashCode())
+                    indexLength++;
             }
-            indexLength++;
         }
 
         Room[] resApiRooms = new Room[indexLength];
@@ -54,10 +53,11 @@ public class Controller {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
                 room1.equals(room2);
-                if (room1.hashCode() == room2.hashCode())
+                if (room1.hashCode() == room2.hashCode()) {
                     resApiRooms[indexRoom] = room1;
+                    indexRoom++;
+                }
             }
-            indexRoom++;
         }
         return resApiRooms;
     }
