@@ -29,6 +29,6 @@ public class Demo {
         //test
         System.out.println(Arrays.toString(bookingComAPI.findRooms(200, 2, null, null)));
         System.out.println(Arrays.toString(controller.requestRooms(800, 0, null, null)));
-        System.out.println(Arrays.toString(controller.check(null, null)));
+        System.out.println(Arrays.toString(controller.check(bookingComAPI, null)));
     }
 }

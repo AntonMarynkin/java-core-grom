@@ -37,15 +37,25 @@ public class Controller {
         if (api2 == null)
             return null;
 
-        Room[] resApiRooms = new Room[api1.getAll().length];
-        int index = 0;
-
+        int indexLength = 1;
         for (Room room1 : api1.getAll()) {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
+                if (room1.getPrice() == room2.getPrice() && room1.getPersons() == room2.getPersons() && room1.getCityName() == room2.getCityName() && room1.getHotelName() == room2.getHotelName())
+                    indexLength++;
+            }
+        }
+
+        Room[] resApiRooms = new Room[indexLength];
+
+        int indexRoom = 0;
+        for (Room room1 : api1.getAll()) {
+            for (int i = 1; i < api2.getAll().length; i++) {
+                Room room2 = api2.getAll()[i];
+                room1.equals(room2);
                 if (room1.getPrice() == room2.getPrice() && room1.getPersons() == room2.getPersons() && room1.getCityName() == room2.getCityName() && room1.getHotelName() == room2.getHotelName()) {
-                    resApiRooms[index] = room1;
-                    index++;
+                    resApiRooms[indexRoom] = room1;
+                    indexRoom++;
                 }
             }
         }
