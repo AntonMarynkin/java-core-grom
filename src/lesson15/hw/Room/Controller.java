@@ -36,7 +36,7 @@ public class Controller {
         if (api2 == null)
             return null;
 
-        int indexLength = 1;
+        int indexLength = 0;
         for (Room room1 : api1.getAll()) {
             for (int i = 1; i < api2.getAll().length; i++) {
                 Room room2 = api2.getAll()[i];
