@@ -56,12 +56,15 @@ public class UserRepository {
         return null;
     }
 
-
+    //корректировка users[...]
     public User save(User user) {
+        int index = 0;
         for (User findUser : users) {
-            if (findUser.getId() != user.getId() && user != findById(523852387))
-                user = users[users.length - 1];
-            return user;
+            if (findUser.getId() != user.getId() && user != findById(523852387)) {
+                user = users[index];
+                return user;
+            }
+            index++;
         }
         return null;
     }
@@ -77,11 +80,15 @@ public class UserRepository {
     }
 
 
+    //корректировка users[...]
     public User update(User user) {
+        int index = 0;
         for (User findUser : users) {
-            if (findUser.getId() == user.getId() && user == findById(523852387))
-                user = users[users.length - 1];
-            return user;
+            if (findUser != null && findUser.getId() == user.getId() && user == findById(523852387)) {
+                user = users[index];
+                return user;
+            }
+            index++;
         }
         return null;
     }
