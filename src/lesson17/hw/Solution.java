@@ -1,10 +1,14 @@
 package lesson17.hw;
 
+import java.util.Arrays;
+
 public class Solution {
 
     public static void main(String[] args) {
-        String words = "  Hello my dear friend,    let`s go fun ";
-        System.out.println(countWords(words));
+        String string = "  Hello my dear friend    let`s go fun ";
+        System.out.println(countWords(string));
+        System.out.println(maxWord(string));
+        System.out.println(minWord(string));
     }
 
     public static int countWords(String input) {
@@ -20,24 +24,42 @@ public class Solution {
 
     public static String maxWord(String input) {
 
-        String[] words = input.split(" ");
+        String[] words = input.trim().split(" ");
+        System.out.println(Arrays.toString(words));
 
-        int count = 0;
+        int count;
         int maxCount = 0;
+        String word = new String();
 
         for (int i = 0; i < words.length; i++) {
             char[] chars = words[i].toCharArray();
-            for (int j = 0; j < chars.length; j++) {
-                count++;
-                if (count > maxCount)
-                    maxCount = count;
+            count = chars.length;
+            //System.out.println(maxCount);
+            if (count > maxCount) {
+                maxCount = count;
+                word = words[i];
             }
-            return words[i];
         }
-        return null;
+        return word;
     }
 
     public static String minWord(String input) {
-        return null;
+
+        String[] words = input.trim().split(" ");
+
+        int count;
+        int minCount = Integer.MAX_VALUE;
+        String word = new String();
+
+        for (int i = 0; i < words.length; i++) {
+            char[] chars = words[i].toCharArray();
+            count = chars.length;
+            //System.out.println(minCount);
+            if (count != 0 && count < minCount) {
+                minCount = count;
+                word = words[i];
+            }
+        }
+        return word;
     }
 }
